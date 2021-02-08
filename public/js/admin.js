@@ -24,6 +24,7 @@ function addUserToTable(user) {
    userRow.append(...cols);
 
    usersTableBody.append(userRow);
+   return userRow;
 }
 
 window.addEventListener('load', async function(){
