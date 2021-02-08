@@ -34,3 +34,5 @@ window.addEventListener('load', async function(){
         addUserToTable(user);
     }
 });
+
+modules.exports = addUserToTable;
