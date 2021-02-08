@@ -10,4 +10,5 @@ emailForm.addEventListener('submit', async function(evt) {
     const params = { email: emailInput, firstName: firstName, lastName: lastName };
     const res = await axios.post(BASE_URL, params)
     console.log(res);
+    emailForm.reset();
 });
