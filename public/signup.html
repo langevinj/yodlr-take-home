@@ -8,45 +8,49 @@
   <title>Yodlr Registration Portal</title>
 </head>
 <body>
+  <!-- The navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Yodlr</a>
+    <div class="navbar-nav ml-auto">
+      <a class="nav-link" href="/admin.html">Admin Page</a>
+    </div>
+  </nav>
+
   <div class="container container-fluid text-center align-items-center">
-    <!-- The navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/">Yodlr</a>
-      <div class="navbar-nav ml-auto">
-        <a class="nav-link" href="/admin.html">Admin Page</a>
+    <div class="row">
+      <div class="col-3"></div>
+
+      <!-- Start of form -->
+      <div id="form-box" class="bg-light border rounded pt-5 pb-5 col-6 mt-3">
+        <h2>Yodlr Registration Portal</h2>
+        <form id="emailForm" action="./js/signup.js">
+          <div class="form-group text-center">
+            <div class="input-group mb-3 mt-2">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Email:</span>
+              </div>
+              <input type="email" name="email" class="form-control">
+            </div>
+          
+            <div class="input-group mb-3 mt-2">
+              <div class="input-group-prepend">
+                <span class="input-group-text">First Name:</span>
+              </div>
+              <input type="text" name="firstName" class="form-control">
+            </div>
+          
+            <div class="input-group mb-3 mt-2">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Last Name:</span>
+              </div>
+              <input type="text" name="lastName" class="form-control">
+            </div>
+          
+            <button type="submit" class="btn btn-outline-secondary rounded">Submit</button>
+          </div>
+        </form>
       </div>
-    </nav>
-
-    <h1>Yodlr Registration Portal</h1>
-
-    <!-- Start of form -->
-    <div id="form-box">
-      <form id="emailForm" action="./js/signup.js">
-        <div class="form-group text-center">
-          <div class="input-group mb-3 mt-2">
-            <div class="input-group-prepend">
-              <span class="input-group-text">Email:</span>
-            </div>
-            <input type="email" name="email">
-          </div>
-        
-          <div class="input-group mb-3 mt-2">
-            <div class="input-group-prepend">
-              <span class="input-group-text">First Name:</span>
-            </div>
-            <input type="text" name="firstName">
-          </div>
-        
-          <div class="input-group mb-3 mt-2">
-            <div class="input-group-prepend">
-              <span class="input-group-text">Last Name:</span>
-            </div>
-            <input type="text" name="lastName">
-          </div>
-        
-          <button type="submit" class="btn btn-outline-secondary rounded">Submit</button>
-        </div>
-      </form>
+      <div class="col-3"></div>
     </div>
 
   </div>
