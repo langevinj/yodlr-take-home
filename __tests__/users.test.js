@@ -45,6 +45,13 @@ describe('GET /users/:id', function() {
     });
 });
 
+describe('DELETE /users/:id', function () {
+    it('deletes the given user', async function () {
+        const res = await request.delete('/users/1');
+        expect(res.statusCode).toEqual(204);
+    });
+});
+
 describe('PUT /users/:id', function() {
     it('updates a user', async function() {
         const userBefore = await request.get('/users/1');
@@ -69,6 +76,7 @@ describe('PUT /users/:id', function() {
         expect(res.body.message).toEqual('ID paramter does not match body');
     })
 });
+
 
 
 afterAll(() => {
