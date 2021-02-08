@@ -17,6 +17,23 @@ describe('GET /users', function() {
     });
 });
 
+describe('POST /users', function() {
+    it('adds a new user', async function(done) {
+        const newUserData = {email: "testuser@test.com", firstName: "Test", lastName: "User"}
+        const res = await request.post('/users')
+                    .send(newUserData)
+        expect(res.statusCode).toEqual(200);
+        expect(res.body).toEqual({
+            id: expect.any(Number),
+            email: "testuser@test.com",
+            firstName: "Test",
+            lastName: "User",
+            state: expect.any(String)
+        });
+        done();
+    });
+});
+
 afterAll(() => {
     endConnection();
 });
