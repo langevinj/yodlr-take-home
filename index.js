@@ -47,4 +47,8 @@ var server = app.listen(app.get('port'), function() {
   );
 });
 
-module.exports = app;
+function endConnection(){
+  server.close();
+}
+
+module.exports = { app, endConnection };
