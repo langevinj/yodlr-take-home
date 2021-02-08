@@ -1,5 +1,5 @@
 
-/**Testing for routes
+/**Unit tests for routes
  *      run tests like: 'npm test users.test.js'
  */
 
