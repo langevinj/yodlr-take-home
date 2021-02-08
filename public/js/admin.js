@@ -3,7 +3,7 @@ const BASE_URL = 'http://localhost:3000/users';
 const usersTableBody = document.getElementsByTagName('tbody')[0];
 
 //Create a table entry for a user, then append it to the DOM.
-function addUserToTable(user) {
+function createUserRow(user) {
    const userRow = document.createElement('tr');
    const idCol = document.createElement('th');
    idCol.innerHTML = user.id;
@@ -23,7 +23,6 @@ function addUserToTable(user) {
    const cols = [idCol, firstNameCol, lastNameCol, emailCol];
    userRow.append(...cols);
 
-   usersTableBody.append(userRow);
    return userRow;
 }
 
@@ -31,8 +30,9 @@ window.addEventListener('load', async function(){
     const res = await axios.get(BASE_URL);
     const users = res.data;
     for(let user of users){
-        addUserToTable(user);
+        const row = createUserRow(user);
+        usersTableBody.append(row);
     }
 });
 
-modules.exports = addUserToTable;
+module.exports = createUserRow;
