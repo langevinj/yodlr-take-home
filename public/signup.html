@@ -4,19 +4,54 @@
   <meta charset=utf-8>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/signup.css" type="text/css">
   <title>Yodlr Registration Portal</title>
 </head>
 <body>
-  <h1>Yodlr Registration Portal</h1>
-  <form id="emailForm" action="./js/signup.js">
-    Email: <input type="email" name="email"></br>
-    First Name: <input type="text" name="firstName"></br>
-    Last Name: <input type="text" name="lastName"></br>
-    <button type="submit">Submit</button>
-  </form>
-  <p>
-    <a href="/admin.html">Admin Page</a>
-  </p>
+  <div class="container container-fluid text-center">
+    <!-- The navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">Yodlr</a>
+      <div class="navbar-nav ml-auto">
+        <a class="nav-link" href="/admin.html">Admin Page</a>
+      </div>
+    </nav>
+
+
+    <h1>Yodlr Registration Portal</h1>
+    <form id="emailForm" action="./js/signup.js">
+      <div class="form-group text-center">
+        <div class="input-group mb-3 mt-2">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Email:</span>
+          </div>
+          <input type="email" name="email">
+        </div>
+        
+        <div class="input-group mb-3 mt-2">
+          <div class="input-group-prepend">
+            <span class="input-group-text">First Name:</span>
+          </div>
+          <input type="text" name="firstName">
+        </div>
+        
+        <div class="input-group mb-3 mt-2">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Last Name:</span>
+          </div>
+          <input type="text" name="lastName">
+        </div>
+        
+        <button type="submit">Submit</button>
+      </div>
+      
+    </form>
+    <p>
+      <a href="/admin.html">Admin Page</a>
+    </p>
+
+  </div>
+  <!-- End of container -->
   
   <script src="./js/signup.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
