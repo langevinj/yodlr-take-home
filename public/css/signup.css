@@ -1,0 +1,7 @@
+#form-box {
+    box-sizing: content-box;
+}
+
+form {
+    display: inline-block;
+}
