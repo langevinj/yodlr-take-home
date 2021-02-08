@@ -8,8 +8,8 @@
 </head>
 <body>
   <h1>Yodlr Registration Portal</h1>
-  <form id="emailForm">
-    Email: <input type="email" name="email"></br>
+  <form id="emailForm" action="./js/signup.js">
+    Email: <input type="email" name="email" id="emailInput"></br>
     <button type="submit">Submit</button>
   </form>
   <p>
@@ -17,6 +17,7 @@
   </p>
   
   <script src="./js/signup.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
   <!-- Bootstrap scripts -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

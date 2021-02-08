@@ -1,8 +1,9 @@
 
-const emailForm = document.getElementById('emailForm');
-const emailInput = document.getElementsByName('email');
 
-emailForm.addEventListener('submit', function(evt) {
+const emailForm = document.getElementById('emailForm');
+
+emailForm.addEventListener('submit', async function(evt) {
     evt.preventDefault();
+    const emailInput = emailForm.elements[0].value;
     console.log(emailInput);
 });
