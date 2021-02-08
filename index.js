@@ -46,3 +46,5 @@ var server = app.listen(app.get('port'), function() {
     server.address().port
   );
 });
+
+module.exports = server;
