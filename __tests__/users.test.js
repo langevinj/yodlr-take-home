@@ -7,6 +7,7 @@ const {app, endConnection} = require('../index.js');
 const supertest = require('supertest');
 const request = supertest(app);
 
+/*******************GET /users */
 
 describe('GET /users', function() {
     it('responds with a list of users', async function() {
@@ -15,6 +16,8 @@ describe('GET /users', function() {
         expect(res.body.length).toEqual(5);
     });
 });
+
+/********************POST /users */
 
 describe('POST /users', function() {
     it('adds a new user', async function() {
@@ -32,6 +35,8 @@ describe('POST /users', function() {
     });
 });
 
+/*************************GET /users/:id */
+
 describe('GET /users/:id', function() {
     it('gets a user with given id', async function() {
         const res = await request.get('/users/1');
@@ -45,12 +50,16 @@ describe('GET /users/:id', function() {
     });
 });
 
+/***********************DELETE /users/:id */
+
 describe('DELETE /users/:id', function () {
     it('deletes the given user', async function () {
         const res = await request.delete('/users/1');
         expect(res.statusCode).toEqual(204);
     });
 });
+
+/*************************PUT /users/:id */
 
 describe('PUT /users/:id', function() {
     it('updates a user', async function() {
@@ -76,7 +85,6 @@ describe('PUT /users/:id', function() {
         expect(res.body.message).toEqual('ID paramter does not match body');
     })
 });
-
 
 
 afterAll(() => {
