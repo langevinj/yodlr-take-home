@@ -40,13 +40,36 @@ describe('GET /users/:id', function() {
     });
 
     it('returns 404 for non-existent user', async function() {
-        try {
-            const res = await request.get('/users/100000');
-        } catch (err) {
-            expect(err.statusCode).toEqual(404);
-        }
+        const res = await request.get('/users/100000');
+        expect(res.statusCode).toEqual(404);
     });
 });
+
+describe('PUT /users/:id', function() {
+    it('updates a user', async function() {
+        const userBefore = await request.get('/users/1');
+        expect(userBefore.body.email).toEqual("kyle@getyodlr.com");
+
+        const res = await request.put('/users/1')
+            .send({ "id": 1, "email": "newEmail@email.com", "firstName": "Kyle", "lastName": "White", "state": "active" });
+        expect(res.statusCode).toEqual(200);
+        expect(res.body.email).toEqual("newEmail@email.com");
+    });
+
+    it('responds 404 if user is not found', async function() {
+        const res = await request.put('/users/15444')
+            .send({ "id": 15444, "email": "newEmail@email.com", "firstName": "Kyle", "lastName": "White", "state": "active" });
+        expect(res.statusCode).toEqual(404);
+    });
+
+    it("responds with error if params id and data id do not match", async function() {
+        const res = await request.put('/users/2')
+            .send({ "id": 1, "email": "newEmail@email.com", "firstName": "Kyle", "lastName": "White", "state": "active" });
+        expect(res.statusCode).toEqual(500);
+        expect(res.body.message).toEqual('ID paramter does not match body');
+    })
+});
+
 
 afterAll(() => {
     endConnection();
