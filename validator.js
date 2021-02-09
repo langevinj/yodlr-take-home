@@ -15,7 +15,7 @@ async function checkIfDuplicateEmail(email){
 
 //Make sure that a name on contains valid characters.
 function checkIfNameInvalid(name){
-    for(let char of name.toLowercase()){
+    for(let char of name.toLowerCase()){
         if(!acceptalNameCharacters.includes(char)) return true;
     }
 

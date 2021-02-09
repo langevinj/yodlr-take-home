@@ -19,19 +19,19 @@ router.post('/', async function(req, res) {
 
   //Check for errros in the signup data, and return any found;
   const errors = await validateUserSignup(user);
-  console.log(`errors are ${errors}`)
-  if(errors.length){
-    res.status(400);
-    return res.json(errors);
-  }
+  console.log(`errors are ${errors}`);
 
-  user.id = curId++;
-  if (!user.state) {
-    user.state = 'pending';
+  if(errors.length){
+    return res.json({errors: errors});
+  } else {
+    user.id = curId++;
+    if (!user.state) {
+      user.state = 'pending';
+    }
+    users[user.id] = user;
+    log.info('Created user', user);
+    res.json(user);
   }
-  users[user.id] = user;
-  log.info('Created user', user);
-  res.json(user);
 });
 
 /* Get a specific user by id */
