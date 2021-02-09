@@ -45,6 +45,23 @@ describe("checkIfNameInvalid", function() {
     });
 });
 
+/***********************************validateUserSignup */
+
+describe("validateUserSignup", function() {
+    it("returns no errors with valid input", async function() {
+        const signupData = {email: "validemail@email.com", firstName: "John", lastName: "Smith"};
+        expect(await validateUserSignup(signupData)).toEqual([]);
+    }); 
+
+    it("returns an array of errors if any are present", async function(){
+        const badAllData = {email: "kyle@getyodlr.com", firstName: "1122", lastName:"Smith@"};
+        const badNameData = {email: "validemail@email.com", firstName: "111", lastName: "Smith"};
+
+        expect(await validateUserSignup(badAllData)).toHaveLength(3);
+        expect(await validateUserSignup(badNameData)).toHaveLength(1);
+    });
+});
+
 afterAll(() => {
     endConnection();
 });
