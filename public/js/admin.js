@@ -21,7 +21,10 @@ function createUserRow(user) {
    emailCol.innerHTML = user.email;
 
    const stateCol = document.createElement('td');
-   stateCol.innerHTML = user.state;
+   const stateButton = document.createElement('button');
+   stateButton.innerHTML = user.state;
+   stateButton.className = user.state === 'active' ? 'btn btn-success rounded' : 'btn btn-warning rounded';
+   stateCol.append(stateButton);
 
    const cols = [idCol, firstNameCol, lastNameCol, emailCol, stateCol];
    userRow.append(...cols);
