@@ -12,6 +12,8 @@ axios.get.mockResolvedValue({
     data: [{ "id": 1, "email": "kyle@getyodlr.com", "firstName": "Kyle", "lastName": "White", "state": "active" }]
 });
 
+/**********************checkIfDuplicateEmail */
+
 describe('checkIfDuplicateEmail', function() {
     it('returns false if no other users with the email already exist', async function(){
         const res = await checkIfDuplicateEmail('neversignedup@test.com');
@@ -22,6 +24,17 @@ describe('checkIfDuplicateEmail', function() {
         const res = await checkIfDuplicateEmail('kyle@getyodlr.com');
         expect(res).toBe(true);
     })
+});
+
+/*********************checkIfNameInvalid */
+
+describe("checkIfNameInvalid", function() {
+    it("returns false if a name is valid", function() {
+        expect(checkIfNameInvalid("John")).toBe(false);
+        expect(checkIfNameInvalid("Smith")).toBe(false);
+        expect(checkIfNameInvalid("Abdul-Jabbar")).toBe(false);
+        expect(checkIfNameInvalid("Test Testy")).toBe(false);
+    });
 });
 
 afterAll(() => {
