@@ -3,6 +3,7 @@ var router = express.Router();
 var _ = require('lodash');
 var logger = require('../lib/logger');
 var log = logger();
+const validateUserSignup = require('../validator.js');
 
 var users = require('../init_data.json').data;
 var curId = _.size(users);
@@ -15,6 +16,11 @@ router.get('/', function(req, res) {
 /* Create a new user */
 router.post('/', function(req, res) {
   var user = req.body;
+
+  //Check for errros in the signup data, and return any found;
+  const errors = validateUserSignup(user);
+  if(errors.length) res.json(errors);
+
   user.id = curId++;
   if (!user.state) {
     user.state = 'pending';
