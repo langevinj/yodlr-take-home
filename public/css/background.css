@@ -1,5 +1,8 @@
+/* The common stylesheet shared by each page */
+
 body {
     background-image: url("../img/double-bubble-outline.png");
+    /* Background image provided by www.subtlepatterns.com */
 }
 
 .navbar {
