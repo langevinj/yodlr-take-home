@@ -1,5 +1,5 @@
 const axios = require("axios");
-const acceptalNameCharacters = "abcdefghijklmnopqrstuvwxyz- ".split("");
+const acceptalNameCharacters = "abcdefghijklmnopqrstuvwxyz-' ".split("");
 
 //Make sure there is not already a user with the email provided.
 async function checkIfDuplicateEmail(email){
