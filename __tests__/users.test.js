@@ -51,10 +51,8 @@ describe('GET /users/:id', function() {
         done();
     });
 
-    it('returns 404 for non-existent user', async function(done) {
-        const res = await request.get('/users/100000');
-        expect(res.statusCode).toEqual(404);
-        done();
+    it('returns 404 for non-existent user', async function() {
+        return await request.get('/users/100000').expect(404);
     });
     
 });
@@ -73,7 +71,7 @@ describe('PUT /users/:id', function () {
 
     it('responds 404 if user is not found', async function (done) {
         const userData = { "id": 15444, "email": "newEmail@email.com", "firstName": "Kyle", "lastName": "White", "state": "active" };
-        const res = await request.put('/users/15444').send(userData);
+        const res = await request.put('/users/15444').send(userData).expect(404);
         expect(res.statusCode).toEqual(404);
         done();
     });
