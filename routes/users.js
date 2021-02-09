@@ -17,7 +17,7 @@ router.get('/', function(req, res) {
 router.post('/', async function(req, res) {
   var user = req.body;
 
-  //Check for errros in the signup data, and return any found;
+  //Check for errors in the signup data, and return any found;
   const errors = await validateUserSignup(user);
   console.log(`errors are ${errors}`);
 
