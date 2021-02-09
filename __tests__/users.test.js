@@ -7,9 +7,10 @@ const {app, endConnection} = require('../index.js');
 const supertest = require('supertest');
 let request = supertest(app);
 
-afterAll(() => {
-    endConnection();
+beforeAll(done => {
+    done();
 });
+
 
 /*******************GET /users */
 
@@ -25,8 +26,8 @@ describe('GET /users', function() {
 /********************POST /users */
 
 describe('POST /users', function() {
-    it('adds a new user', async function(done) {
-        const newUserData = {email: "testuser@test.com", firstName: "Test", lastName: "User"}
+    it('adds a new user', async function() {
+        const newUserData = {email: "testuser@test.com", firstName: "Test", lastName: "User"};
         const res = await request.post('/users')
                     .send(newUserData)
         expect(res.statusCode).toEqual(200);
@@ -37,7 +38,6 @@ describe('POST /users', function() {
             lastName: "User",
             state: expect.any(String)
         });
-        done();
     });
 });
 
@@ -95,4 +95,6 @@ describe('DELETE /users/:id', function () {
     });
 });
 
-
+afterAll(() => {
+    endConnection();
+})
