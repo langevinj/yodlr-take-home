@@ -36,6 +36,13 @@ describe("checkIfNameInvalid", function() {
         expect(checkIfNameInvalid("Test Testy")).toBe(false);
         expect(checkIfNameInvalid("O'Brien")).toBe(false);
     });
+
+    it("returns true for invalid names", function(){
+        expect(checkIfNameInvalid("1111")).toBe(true);
+        expect(checkIfNameInvalid("John@")).toBe(true);
+        expect(checkIfNameInvalid("@@##")).toBe(true);
+        expect(checkIfNameInvalid("John_Smith")).toBe(true);
+    });
 });
 
 afterAll(() => {
