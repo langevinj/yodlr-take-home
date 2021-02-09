@@ -19,7 +19,6 @@ router.post('/', async function(req, res) {
 
   //Check for errors in the signup data, and return any found;
   const errors = await validateUserSignup(user);
-  console.log(`errors are ${errors}`);
 
   if(errors.length){
     return res.json({errors: errors});
@@ -55,7 +54,8 @@ router.delete('/:id', function(req, res) {
 /* Update a user by id */
 router.put('/:id', function(req, res, next) {
   var user = req.body;
-  const foundUser = users[req.params.id];
+  const foundUser = users[user.id];
+
   if(!foundUser) {
     return next();
   }
