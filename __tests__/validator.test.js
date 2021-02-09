@@ -34,6 +34,7 @@ describe("checkIfNameInvalid", function() {
         expect(checkIfNameInvalid("Smith")).toBe(false);
         expect(checkIfNameInvalid("Abdul-Jabbar")).toBe(false);
         expect(checkIfNameInvalid("Test Testy")).toBe(false);
+        expect(checkIfNameInvalid("O'Brien")).toBe(false);
     });
 });
 
