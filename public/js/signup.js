@@ -1,5 +1,17 @@
 const emailForm = document.getElementById('emailForm');
+const formBox = document.getElementById('form-box');
 const BASE_URL = 'http://localhost:3000/users'
+
+//Create alert messages for each error and append them to the form box.
+function alertErrors(errors){
+    for(let error of errors){
+        let errorAlert = document.createElement('div');
+        errorAlert.className = 'alert alert-danger';
+        errorAlert.setAttribute('role', 'alert');
+        errorAlert.innerHTML = error;
+        formBox.append(errorAlert);
+    }
+}
 
 emailForm.addEventListener('submit', async function(evt) {
     evt.preventDefault();
@@ -9,10 +21,10 @@ emailForm.addEventListener('submit', async function(evt) {
 
     const params = { email: emailInput, firstName: firstName, lastName: lastName };
     const res = await axios.post(BASE_URL, params);
-    console.log(res)
+
     if(res.data.errors){
-        console.log("there was an error")
-        console.log(res.errors)
+        alertErrors(res.data.errors);
+    } else {
+        emailForm.reset();
     }
-    emailForm.reset();
 });
