@@ -28,7 +28,7 @@ router.post('/', async function(req, res) {
       user.state = 'pending';
     }
     users[user.id] = user;
-    log.info('Created user', user);
+    // log.info('Created user', user);
     res.json(user);
   }
 });
@@ -47,7 +47,7 @@ router.delete('/:id', function(req, res) {
   var user = users[req.params.id];
   delete users[req.params.id];
   res.status(204);
-  log.info('Deleted user', user);
+  // log.info('Deleted user', user);
   res.json(user);
 });
 
@@ -63,7 +63,7 @@ router.put('/:id', function(req, res, next) {
     return next(new Error('ID paramter does not match body'));
   }
   users[user.id] = user;
-  log.info('Updating user', user);
+  // log.info('Updating user', user);
   res.json(user);
 });
 
