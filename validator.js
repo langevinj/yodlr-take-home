@@ -2,7 +2,7 @@ const axios = require("axios");
 const acceptalNameCharacters = "abcdefghijklmnopqrstuvwxyz- ".split("");
 
 //Make sure there is not already a user with the email provided.
-function checkIfDuplicateEmail(email){
+async function checkIfDuplicateEmail(email){
     const res = await axios.get('http://localhost:3000/users');
     const existingUsers = res.data;
 
@@ -23,9 +23,9 @@ function checkIfNameInvalid(name){
 }
 
 //Go through each piece of data passed in signup. Determine validity, then create an error array.
-function validateUserSignup(signupData) {
+async function validateUserSignup(signupData) {
     const errors = [];
-    const emailInvalid = checkIfDuplicateEmail(signupData.email);
+    const emailInvalid = await checkIfDuplicateEmail(signupData.email);
     const firstNameInvalid = checkIfNameInvalid(signupData.firstName);
     const lastNameInvalid = checkIfNameInvalid(signupData.lastName);
 
