@@ -20,7 +20,10 @@ function createUserRow(user) {
    const emailCol = document.createElement('td');
    emailCol.innerHTML = user.email;
 
-   const cols = [idCol, firstNameCol, lastNameCol, emailCol];
+   const stateCol = document.createElement('td');
+   stateCol.innerHTML = user.state;
+
+   const cols = [idCol, firstNameCol, lastNameCol, emailCol, stateCol];
    userRow.append(...cols);
 
    return userRow;
