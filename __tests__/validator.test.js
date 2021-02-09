@@ -1,4 +1,4 @@
-/** Tests for the signup data validator
+/** Unit tests for the signup data validator
  *          run like: 'npm test validator.test.js'
  */
 const { validateUserSignup, checkIfDuplicateEmail, checkIfNameInvalid } = require('../validator.js');
